@@ -10,11 +10,11 @@ class LoginForm extends React.Component {
     };
   }
 
-  handleSubmit = e =>{
-    e.preventDefault();
-   
+  onSubmit = event =>{
+    event.preventDefault()
+    if(this.state.username.length > 0 && this.state.password.length > 0){
       this.props.handleLogin({username:this.state.username,password:this.state.password})
-    
+    }
   }
 
   handleInputChange = event =>{
@@ -25,7 +25,7 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.onSubmit}>
         <div>
           <label>
             Username
